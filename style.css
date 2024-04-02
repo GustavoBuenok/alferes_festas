@@ -1,0 +1,20 @@
+.pagina{
+    display: flex;
+    width: 100vh;
+    height: 100vh;
+    
+}
+
+.container_esquerdo{
+    width: 35vh; /* Largura do container, ajuste conforme necessário */
+    height: 100vh; /* Altura do container, ajuste conforme necessário */
+    background-color: #AD53A6; /* Cor de fundo, ajuste conforme necessário */
+     /* Margem entre os containers, ajuste conforme necessário */
+  }
+
+.container_direito{
+    width: 75vh; /* Largura do container, ajuste conforme necessário */
+    height: 100vh; /* Altura do container, ajuste conforme necessário */
+    background-color: #AD53A6; /* Cor de fundo, ajuste conforme necessário */
+     /* Margem entre os containers, ajuste conforme necessário */
+  }
