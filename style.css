@@ -1,20 +1,45 @@
-.pagina{
+body {
+    margin: 0;
+}
+
+.pagina_inicial {
     display: flex;
-    width: 100vh;
+    width: 100%;
     height: 100vh;
+}
+
+.container_esquerdo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 35%;
+    height: 100%;
+    background-color: #AD53A6;
+}
+
+.container_direito {
+    width: 65%;
+    height: 100%;
+    background-color: #AD53A6;
     
 }
 
-.container_esquerdo{
-    width: 35vh; /* Largura do container, ajuste conforme necessário */
-    height: 100vh; /* Altura do container, ajuste conforme necessário */
-    background-color: #AD53A6; /* Cor de fundo, ajuste conforme necessário */
-     /* Margem entre os containers, ajuste conforme necessário */
-  }
+.imagem_fundo{
+    width: 100%;
+    height: 100%;
+}
 
-.container_direito{
-    width: 75vh; /* Largura do container, ajuste conforme necessário */
-    height: 100vh; /* Altura do container, ajuste conforme necessário */
-    background-color: #AD53A6; /* Cor de fundo, ajuste conforme necessário */
-     /* Margem entre os containers, ajuste conforme necessário */
-  }
+.titulo {
+    text-align: center; /* Alinha todo o texto do título ao centro */
+}
+
+.titulo h1,
+.titulo h2 {
+    margin: 0; /* Remove margens padrão dos títulos */
+}
+
+.texto,
+.botao {
+    margin: 10px 0; /* Adicione margem entre os elementos, se necessário */
+}
