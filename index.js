@@ -59,21 +59,14 @@ async function retornarClientes() {
     }
 }
 
-cadastrarCliente()
-
-// Adicione a função preencherTabelaClientes() ao seu código
 async function preencherTabelaClientes() {
-    const uri = 'mongodb://localhost:27017'; // URI de conexão com o seu banco de dados MongoDB
-    const dbName = 'cadastro-clientes'; // Nome do seu banco de dados MongoDB
-    const collectionName = 'clientes'; // Nome da coleção onde os clientes são armazenados
-
     const client = new MongoClient(uri);
 
     try {
         await client.connect();
         const database = client.db(dbName);
         const collection = database.collection(collectionName);
-        
+
         // Consulta todos os clientes na coleção
         const clientes = await collection.find().toArray();
 
@@ -94,7 +87,7 @@ async function preencherTabelaClientes() {
             row.insertCell(5).textContent = cliente.avaliacao;
         });
     } catch (error) {
-        console.error("Erro ao retornar clientes:", error);
+        console.error("Erro ao preencher tabela de clientes:", error);
     } finally {
         await client.close();
     }
@@ -102,7 +95,20 @@ async function preencherTabelaClientes() {
 
 // Chama a função cadastrarCliente() quando a página HTML for carregada
 window.onload = async function() {
-    await cadastrarCliente();
-    // Chama a função preencherTabelaClientes() após cadastrar o cliente e a página ser carregada
-    preencherTabelaClientes();
+    const client = new MongoClient(uri);
+
+    try {
+        await client.connect();
+        const database = client.db(dbName);
+        const collection = database.collection(collectionName);
+
+        await cadastrarCliente();
+
+        // Chama a função preencherTabelaClientes() após cadastrar o cliente e a página ser carregada
+        await preencherTabelaClientes();
+    } catch (error) {
+        console.error("Erro:", error);
+    } finally {
+        await client.close();
+    }
 };
